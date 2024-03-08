@@ -4,8 +4,18 @@
     </head>
     <body>
         <h1>Yo te prestito...</h1>
-        <div style="width:700px; height:700px; background-image:url('jpg/yoTePrestito.jpg');">&nbsp;</div>
+        <div id="img1" style="width:700px; height:700px; background-image:url('jpg/yoTePrestito01.jpg');">&nbsp;</div>
         <br>
-        <div style="width:700px; height:700px; background-image:url('jpg/yoTePrestitoLogin.jpg');">&nbsp;</div>
+        <div id="img2" style="width:700px; height:700px; background-image:url('jpg/yoTePrestitoLogin01.jpg');">&nbsp;</div>
     </body>
 </html>
+<script src="js/jquery-3.7.1.js"></script>
+<script>
+    var cual
+    $(document).ready(function(){
+        cual=Math.ceil(Math.random()*2);
+        //alert(cual);
+        $("#img1").css("background-image","url('jpg/yoTePrestito0"+cual+".jpg')");
+        $("#img2").css("background-image","url('jpg/yoTePrestitoLogin0"+cual+".jpg')");
+    });
+</script>

@@ -4,8 +4,13 @@
         <link rel="icon" href="ico/theLadyInRed.ico">
     </head>
     <body style="background: url(png/theLadyInRed.png) center bottom; background-size: 100% auto; display:flex;">
-        <div style="background-color:#000000; width:60%; height:32px; margin:auto; border:5px solid #000000;">
-            <div id='lblBarra' style="background-color:#d72828; width:70%; height:32px;"></div>
+        <div style="margin:auto; width:100%; text-align:center;">
+            <img src="svg/caliente.svg" style="width:20%; background-color:#000000; border:10px solid #000000;">
+            <br><br>
+            <div style="background-color:#000000; width:60%; margin:auto; height:32px; border:5px solid #000000;">
+                <div id='lblBarra' style="background-color:#d72828; width:70%; height:32px;"></div>
+            </div>
+            <br><br><br><br><br><br><br><br><br><br>
         </div>
     </body>
 </html>
@@ -13,14 +18,14 @@
 <script>
     var incr=0;
     var inte=null;
-    $(document).ready(function(){
+    $(window).on("load", function(){
         inte=setInterval(function(){
-            incr+=1;
+            incr+=.2;
             if(incr>100){
                 clearInterval(inte);
                 window.location="http://caliente.mx";
             }else{
-                $("#lblBarra").css('width', incr+'%');
+                $("#lblBarra").css('width', incr.toFixed(2)+'%');
             }//if
         },10);
     });

@@ -1,0 +1,44 @@
+<html>
+    <head>
+        <title>Caliente mx</title>
+        <link rel="icon" href="ico/agatta.ico">
+    </head>
+    <body style="background: url(png/agattaLesse.png) center bottom; background-size: 100% auto;">
+        <br><br><br><br><br><br><br><br><br><br> <br><br><br><br><br><br><br><br><br><br>
+        <br><br><br><br><br><br><br><br><br><br> <br><br><br><br><br><br><br><br><br><br>
+        <br><br><br><br><br><br><br><br><br><br> <br><br><br><br><br><br><br><br><br><br>
+        <br><br><br><br><br><br><br><br><br><br> <br><br><br><br><br>
+        <div style="margin:auto; width:100%; text-align:center; rotate: -5deg;">
+            <img src="gif/excel.gif" style="width:30%; background-color:#007239; border:10px solid #007239;">
+            <br><br>
+            <div style="width:60%; margin:auto; height:32px; border:5px solid #007239; position: relative;">
+                <div style="width:100%;   background-color:#000000; height:32px; position:absolute; z-index:-2;"></div>
+                <div id='lblBarra' style="background-color:#007239; height:32px; position:absolute; z-index:-1;"></div>
+                <label id="lblPorc" style="font-family:Arial, Helvetica, sans-serif; font-size:30px; color:#FFFFFF; text-shadow: 3px 3px 5px #000000;">00.00%</label>
+            </div>
+        </div>
+    </body>
+</html>
+<script src="js/jquery-3.7.1.js"></script>
+<script>
+    var incr=0;
+    var inte=null;
+    var paso=.2;
+    $(window).on("load", function(){
+        inte=setInterval(function(){
+            incr+=paso;
+            if(Math.ceil(incr)%10==0){
+                paso=.2*Math.random();
+            }//if
+            if(incr>100){
+                clearInterval(inte);
+                $("#lblPorc").html('100.00%');
+                window.location="https://docs.google.com/spreadsheets/d/1XRFAHQzWVmOXnfAvPKR4AmHgcQrc9JlvU0Dzl-yvLVU/edit?usp=drive_link";
+            }else{
+                var porc=incr.toFixed(2);
+                $("#lblBarra").css('width', porc+'%');
+                $("#lblPorc").html(porc+'%');
+            }//if
+        },10);
+    });
+</script>

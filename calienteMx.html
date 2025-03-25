@@ -2,6 +2,14 @@
     <head>
         <title>Caliente mx</title>
         <link rel="icon" href="ico/theLadyInRed.ico">
+        <style>
+            .letra {
+                font-size:30px;
+                font-family:Arial, Helvetica, sans-serif;
+                color:white;
+                text-shadow: 3px 3px 5px black;
+            }
+        </style>
     </head>
     <body style="background: url(png/theLadyInRed.png) center bottom; background-size: 100% auto; display:flex;">
         <div style="margin:auto; width:100%; text-align:center;">
@@ -10,9 +18,10 @@
             <div style="width:60%; margin:auto; height:32px; border:5px solid #000000; position: relative;">
                 <div style="width:100%;   background-color:#000000; height:32px; position:absolute; z-index:-2;"></div>
                 <div id='lblBarra' style="background-color:#d72828; height:32px; position:absolute; z-index:-1;"></div>
-                <label id="lblPorc" style="font-family:Arial, Helvetica, sans-serif; font-size:30px; color:white; text-shadow: 3px 3px 5px black;">00.00%</label>
+                <label id="lblPorc" class="letra">00.00%</label>
             </div>
-            <br><br><br><br><br><br><br><br><br><br>
+            <div id="lblAzar" class="letra" style="width:50%; text-align:right; margin:auto;">000000</div>
+            <br><br><br><br><br><br><br><br><br>
         </div>
     </body>
 </html>
@@ -22,6 +31,10 @@
     var inte=null;
     var paso=.2;
     $(window).on("load", function(){
+        var azar="";
+        for(var i=1; i<=6; i++)
+            azar+= Math.random()<.5 ? '0' : '1';
+        $("#lblAzar").html(azar);
         inte=setInterval(function(){
             incr+=paso;
             if(Math.ceil(incr)%10==0){
@@ -30,7 +43,7 @@
             if(incr>100){
                 clearInterval(inte);
                 $("#lblPorc").html('100.00%');
-                window.location="http://caliente.mx";
+                //window.location="http://caliente.mx";
             }else{
                 var porc=incr.toFixed(2);
                 $("#lblBarra").css('width', porc+'%');

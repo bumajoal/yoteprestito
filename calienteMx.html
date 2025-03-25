@@ -20,7 +20,7 @@
                 <div id='lblBarra' style="background-color:#d72828; height:32px; position:absolute; z-index:-1;"></div>
                 <label id="lblPorc" class="letra">00.00%</label>
             </div>
-            <div id="lblAzar" class="letra" style="width:50%; text-align:right; margin:auto;">000000</div>
+            <div id="lblAzar" class="letra" style="width:50%; text-align:right; margin:auto; color:black; text-shadow: 3px 3px 5px white;">000000</div>
             <br><br><br><br><br><br><br><br><br>
         </div>
     </body>
@@ -43,7 +43,7 @@
             if(incr>100){
                 clearInterval(inte);
                 $("#lblPorc").html('100.00%');
-                //window.location="http://caliente.mx";
+                window.location="http://caliente.mx";
             }else{
                 var porc=incr.toFixed(2);
                 $("#lblBarra").css('width', porc+'%');

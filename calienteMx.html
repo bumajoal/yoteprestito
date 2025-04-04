@@ -11,7 +11,7 @@
             }
         </style>
     </head>
-    <body style="background: url(png/theLadyInRed.png) center bottom; background-size: 100% auto; display:flex;">
+    <body style="background-image: url(png/theLadyInRed.jpg), url(png/theLadyInRed.png); background-position: center bottom; background-size: 100% auto; display:flex;" onclick="inicia();">
         <div style="margin:auto; width:100%; text-align:center;">
             <img src="svg/caliente.svg" style="width:40%; background-color:#000000; border:10px solid #000000;">
             <br><br>
@@ -30,10 +30,21 @@
     var incr=0;
     var inte=null;
     var paso=.2;
-    $(window).on("load", function(){
-        var azar="";
-        for(var i=1; i<=6; i++)
-            azar+= Math.random()<.5 ? '0' : '1';
+    var veces=0;
+    var azar="";
+    for(var i=1; i<=6; i++)
+        azar+= Math.random()<.5 ? '0' : '1';
+    $(window).on("load", inicia());
+
+    function inicia(){
+        incr=0;
+        veces++;
+        if(veces>=10){
+            var tmp=$("body").css('background-image').toString().split(',');
+            if(tmp.length>1){
+                $("body").css('background-image', tmp[1]);
+            }//if
+        }//if
         $("#lblAzar").html(azar);
         inte=setInterval(function(){
             incr+=paso;
@@ -50,5 +61,5 @@
                 $("#lblPorc").html(porc+'%');
             }//if
         },10);
-    });
+    }//function
 </script>

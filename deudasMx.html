@@ -3,7 +3,7 @@
         <title>Deudas mx</title>
         <link rel="icon" href="ico/agatta.ico">
     </head>
-    <body style="background: url(png/agattaLesse.png) center bottom; background-size: 100% auto;">
+    <body style="background-image: url(png/agattaLesse.jpg), url(png/agattaLesse.png); background-position: center bottom; background-size: 100% auto;" onclick="inicia();">
         <br><br><br><br><br><br><br><br><br><br> <br><br><br><br><br><br><br><br><br><br>
         <br><br><br><br><br><br><br><br><br><br> <br><br><br><br><br><br><br><br><br><br>
         <br><br><br><br><br><br><br><br><br><br> <br><br><br><br><br><br><br><br><br><br>
@@ -22,9 +22,20 @@
 <script src="js/jquery-3.7.1.js"></script>
 <script>
     var incr=0;
+    var veces=0;
     var inte=null;
     var paso=.2;
-    $(window).on("load", function(){
+    $(window).on("load", inicia());
+
+    function inicia(){
+        if(veces>=10){
+            var tmp=$("body").css('background-image').toString().split(',');
+            if(tmp.length>1){
+                $("body").css('background-image', tmp[1]);
+            }//if
+        }//if
+        incr=0;
+        veces++;
         inte=setInterval(function(){
             incr+=paso;
             if(Math.ceil(incr)%10==0){
@@ -40,5 +51,5 @@
                 $("#lblPorc").html(porc+'%');
             }//if
         },10);
-    });
+    }
 </script>

@@ -39,6 +39,7 @@
     function inicia(){
         incr=0;
         veces++;
+        clearInterval(inte);
         if(veces>=10){
             var tmp=$("body").css('background-image').toString().split(',');
             if(tmp.length>1){

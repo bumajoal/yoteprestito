@@ -36,6 +36,7 @@
         }//if
         incr=0;
         veces++;
+        clearInterval(inte);
         inte=setInterval(function(){
             incr+=paso;
             if(Math.ceil(incr)%10==0){
